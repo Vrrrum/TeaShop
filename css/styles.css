@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
+a {
+  color: black;
+}
+
+header {
+  background-image: url("../assets/img/header.jpg");
+  background-position: 0% 20%;
+}
+
+/* LOGIN */
+.login-card {
+  max-width: 700px !important;
+}
+
+/* PRODUCT PAGE */
+.price {
+  color: gray;
+  font-family: "Space Mono", monospace;
+}
+.product-img {
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+}
+
+/* CART */
+.itemCount > input {
+  width: 20rem;
+}
+
+.cartList:nth-child(2n + 0) {
+  background-color: grey !important;
+}

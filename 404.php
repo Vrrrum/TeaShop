@@ -1,0 +1,1 @@
+<h1>Błąd 404 - Nie znaleziono strony</h1>
