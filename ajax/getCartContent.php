@@ -16,7 +16,8 @@ foreach ($productsId as $id) {
     $item = [
                 "id" => $id,
                 "name" => $products->getName($id),
-                "price" => $products->getPrice($id)
+                "price" => $products->getPrice($id),
+                "count" => $cart->getItemCount($id)
             ];
     array_push($result, $item);
 }

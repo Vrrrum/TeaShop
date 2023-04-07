@@ -36,10 +36,10 @@ if(!$name) {
                 <h2><?=$name?></h2>
                 <span class="h2 font-weight-bold price"><?=$price?> zł</span>
                 <p><?=$desc?></p>
-                <button class="btn btn-outline-dark" type="submit">
-                    <i class="bi-cart-fill me-1"></i>
-                    Dodaj do koszyka
-                </button>
+                <form action="addToCart.php" method="post">
+                  <input class="btn btn-outline-dark" type="submit" value="Dodaj do koszyka">
+                  <input type="hidden" name="product_id" value="<?=$id?>">
+                </form>
               </div>
           </div>
       </div>

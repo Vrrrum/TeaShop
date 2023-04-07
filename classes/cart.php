@@ -21,7 +21,7 @@ class Cart {
 
     public function addToCart($productId, $count) {
         $id = $this->accountId;
-        $this->conn->query("INSERT INTO carts (`id_account`, `id_product`, 'count')
+        $this->conn->query("INSERT INTO carts (`id_account`, `id_product`, `count`)
         VALUES ('$id', '$productId', '$count')");
     }
     public function removeFromCart($productId) {
@@ -48,5 +48,10 @@ class Cart {
         $id = $this->accountId;
         $this->conn->query("SELECT ROUND(SUM(products.price*carts.count), 2) 'sum' FROM `carts` JOIN products ON carts.id_product = products.id_product WHERE carts.id_account = '$id'");
         return $this->conn->fetchAll()[0]['sum'];
+    }
+    public function getItemCount($productId) {
+        $accountId = $this->accountId;
+        $this->conn->query("SELECT count FROM carts WHERE id_product = $productId AND id_account = $accountId");
+        return $this->conn->fetchAll()[0]['count'];
     }
 }

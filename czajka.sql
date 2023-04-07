@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 13, 2023 at 10:51 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Host: 127.0.0.1
+-- Czas generowania: 14 Mar 2023, 12:19
+-- Wersja serwera: 10.4.20-MariaDB
+-- Wersja PHP: 7.3.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `czajka`
+-- Baza danych: `czajka`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `accounts`
+-- Struktura tabeli dla tabeli `accounts`
 --
 
 CREATE TABLE `accounts` (
@@ -38,10 +38,10 @@ CREATE TABLE `accounts` (
   `street` varchar(255) DEFAULT NULL,
   `home_number` varchar(255) DEFAULT NULL,
   `creation_time` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `accounts`
+-- Zrzut danych tabeli `accounts`
 --
 
 INSERT INTO `accounts` (`id_account`, `login`, `password`, `email`, `country`, `city`, `postal_code`, `street`, `home_number`, `creation_time`) VALUES
@@ -52,7 +52,7 @@ INSERT INTO `accounts` (`id_account`, `login`, `password`, `email`, `country`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carts`
+-- Struktura tabeli dla tabeli `carts`
 --
 
 CREATE TABLE `carts` (
@@ -60,32 +60,32 @@ CREATE TABLE `carts` (
   `id_account` int(11) NOT NULL,
   `id_product` int(11) NOT NULL,
   `count` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `carts`
+-- Zrzut danych tabeli `carts`
 --
 
 INSERT INTO `carts` (`id_cart`, `id_account`, `id_product`, `count`) VALUES
-(1, 3, 2, 3),
-(2, 3, 1, 2);
+(3, 3, 1, 4),
+(4, 3, 2, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Struktura tabeli dla tabeli `orders`
 --
 
 CREATE TABLE `orders` (
   `id_orders` int(11) NOT NULL,
   `id_account` int(11) NOT NULL,
   `time` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Struktura tabeli dla tabeli `products`
 --
 
 CREATE TABLE `products` (
@@ -97,10 +97,10 @@ CREATE TABLE `products` (
   `description` varchar(255) NOT NULL,
   `price` float NOT NULL,
   `image` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `products`
+-- Zrzut danych tabeli `products`
 --
 
 INSERT INTO `products` (`id_product`, `name`, `category`, `count`, `quantity`, `description`, `price`, `image`) VALUES
@@ -110,27 +110,27 @@ INSERT INTO `products` (`id_product`, `name`, `category`, `count`, `quantity`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products_orders`
+-- Struktura tabeli dla tabeli `products_orders`
 --
 
 CREATE TABLE `products_orders` (
   `id_order` int(11) NOT NULL,
   `id_product` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Indexes for dumped tables
+-- Indeksy dla zrzutów tabel
 --
 
 --
--- Indexes for table `accounts`
+-- Indeksy dla tabeli `accounts`
 --
 ALTER TABLE `accounts`
   ADD PRIMARY KEY (`id_account`),
   ADD UNIQUE KEY `login` (`login`);
 
 --
--- Indexes for table `carts`
+-- Indeksy dla tabeli `carts`
 --
 ALTER TABLE `carts`
   ADD PRIMARY KEY (`id_cart`),
@@ -138,72 +138,72 @@ ALTER TABLE `carts`
   ADD KEY `baskets_fk1` (`id_product`);
 
 --
--- Indexes for table `orders`
+-- Indeksy dla tabeli `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id_orders`),
   ADD KEY `orders_fk0` (`id_account`);
 
 --
--- Indexes for table `products`
+-- Indeksy dla tabeli `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id_product`);
 
 --
--- Indexes for table `products_orders`
+-- Indeksy dla tabeli `products_orders`
 --
 ALTER TABLE `products_orders`
   ADD KEY `products_orders_fk0` (`id_order`),
   ADD KEY `products_orders_fk1` (`id_product`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT dla zrzuconych tabel
 --
 
 --
--- AUTO_INCREMENT for table `accounts`
+-- AUTO_INCREMENT dla tabeli `accounts`
 --
 ALTER TABLE `accounts`
   MODIFY `id_account` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `carts`
+-- AUTO_INCREMENT dla tabeli `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT dla tabeli `orders`
 --
 ALTER TABLE `orders`
   MODIFY `id_orders` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT dla tabeli `products`
 --
 ALTER TABLE `products`
   MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Constraints for dumped tables
+-- Ograniczenia dla zrzutów tabel
 --
 
 --
--- Constraints for table `carts`
+-- Ograniczenia dla tabeli `carts`
 --
 ALTER TABLE `carts`
   ADD CONSTRAINT `baskets_fk0` FOREIGN KEY (`id_account`) REFERENCES `accounts` (`id_account`),
   ADD CONSTRAINT `baskets_fk1` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`);
 
 --
--- Constraints for table `orders`
+-- Ograniczenia dla tabeli `orders`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_fk0` FOREIGN KEY (`id_account`) REFERENCES `accounts` (`id_account`);
 
 --
--- Constraints for table `products_orders`
+-- Ograniczenia dla tabeli `products_orders`
 --
 ALTER TABLE `products_orders`
   ADD CONSTRAINT `products_orders_fk0` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id_orders`),

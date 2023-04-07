@@ -40,11 +40,11 @@
             if(isset($_SESSION['isLogged'])) {
             ?>
               <a href="/shop/logout.php" class="p-2">Wyloguj</a>
-              <button class="btn btn-outline-dark" type="submit">
+              <a class="btn btn-outline-dark" href="/shop/cart.php" type="submit">
                 <i class="bi-cart-fill me-1"></i>
                 Cart
                 <span class="badge bg-dark text-white ms-1 rounded-pill">$</span>
-              </button>
+              </a>
             <?php
             } else {
             ?>
