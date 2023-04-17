@@ -29,7 +29,7 @@ if(!$name) {
     <main class="py-5">
       <div class="container">
           <div class="row">
-              <div class="product-img col-8" style="background-image: url('/shop/assets/img/products/<?=$image?>.webp')">
+              <div class="product-img col-8" style="background-image: url('/shop/assets/img/products/<?=$image?>')">
                   
               </div>
               <div class="col-4">

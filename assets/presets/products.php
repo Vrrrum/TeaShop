@@ -18,7 +18,7 @@ $idArray = $product->getIdArray();
         <!-- Product image-->
         <img
           class="card-img-top"
-          src="/shop/assets/img/products/<?=$product->getImage($id)?>.webp"
+          src="/shop/assets/img/products/<?=$product->getImage($id)?>"
         />
         <!-- Product details-->
         <div class="card-body p-4">

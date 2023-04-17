@@ -31,7 +31,7 @@ $cart = new Cart($db, $_SESSION['account_id']);
         </div>
 
         <div class="round bg-secondary d-flex flex-row justify-content-around p-2">
-            <div><h3 class="text-light">Cena : <?=$cart->getCartValue()?> zł</h3></div>
+            <div><h3 class="text-light" id="final-price">Cena : <?=$cart->getCartValue()?> zł</h3></div>
             <div><button class="btn btn-outline-light" type="submit">Zamów</button></div>
         </div>
     </main>

@@ -1,0 +1,7 @@
+# Password Protect file
+<Files /shop/adminPanel.php>
+AuthName "Prompt"
+AuthType Basic
+AuthUserFile /shop/.htpasswd
+Require valid-user
+</Files>
